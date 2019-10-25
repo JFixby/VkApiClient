@@ -163,7 +163,7 @@ public class VKClient {
 		params.put("item_id", "" + photo_id);
 		params.put("friends_only", "0");
 		params.put("offset", "0");
-		params.put("count", "1000000");
+		params.put("count", "100000000");
 		params.put("owner_id", "" + groupID);
 		final VkLikesResponseResult response = //
 			VKClient.callMethod("likes.getList", clientParams, params, VkLikesResponseResult.class);
