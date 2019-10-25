@@ -17,7 +17,7 @@ import com.jfixby.scarabei.api.sys.Sys;
 import com.jfixby.vk.api.data.album.AlbumDataResponseResult;
 import com.jfixby.vk.api.data.albums.AlbumsResult;
 import com.jfixby.vk.api.data.comments.CommentsResponseResult;
-import com.jfixby.vk.api.data.likes.VkLikesResponseResult;
+import com.jfixby.vk.api.data.likes.LikesResponseResult;
 import com.jfixby.vk.api.data.photo.PhotoDescriptionUpdateResponseResult;
 import com.jfixby.vk.api.data.photo.SinglePhotoInfoResponse;
 import com.jfixby.vk.api.data.user.ProfileResponseResult;
@@ -156,7 +156,7 @@ public class VkApiCall {
 		return response;
 	}
 
-	public static VkLikesResponseResult getLikes (final VkApiCallParams clientParams, final Long groupID, final Long photo_id,
+	public static LikesResponseResult getLikes (final VkApiCallParams clientParams, final Long groupID, final Long photo_id,
 		final boolean alsoRequestProfile) throws IOException {
 		final Map<String, String> params = Collections.newMap();
 		params.put("type", "photo");
@@ -165,8 +165,8 @@ public class VkApiCall {
 		params.put("offset", "0");
 		params.put("count", "100000000");
 		params.put("owner_id", "" + groupID);
-		final VkLikesResponseResult response = //
-			VkApiCall.callMethod("likes.getList", clientParams, params, VkLikesResponseResult.class);
+		final LikesResponseResult response = //
+			VkApiCall.callMethod("likes.getList", clientParams, params, LikesResponseResult.class);
 		return response;
 	}
 

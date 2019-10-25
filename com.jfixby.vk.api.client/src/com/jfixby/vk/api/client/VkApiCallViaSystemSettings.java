@@ -5,20 +5,13 @@ import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
 
 public class VkApiCallViaSystemSettings implements VkApiCallParams {
-// @Override
-// public Long VKGroupID () {
-// final String str = SystemSettings.getStringParameter(VKCredentials.VKGroupID(), null);
-// Debug.checkNull("" + VKCredentials.VKGroupID(), str);
-//
-// final Long accessKeyID = Long.parseLong(str);
-// return accessKeyID;
-// }
 
 	@Override
 	public String VKAccessToken () {
 		final String str = SystemSettings.getStringParameter(VKCredentials.VKAccessToken(), null);
 		Debug.checkNull("" + VKCredentials.VKAccessToken(), str);
 		return str;
+// https://oauth.vk.com/authorize?client_id=5110427&scope=photos,audio,video,docs,notes,pages,status,offers,questions,wall,groups,email,notifications,stats,ads,offline,docs,pages,stats,notifications&response_type=token
 	}
 
 	@Override

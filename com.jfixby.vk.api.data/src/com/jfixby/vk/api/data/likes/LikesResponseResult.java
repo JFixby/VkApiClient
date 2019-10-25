@@ -3,8 +3,8 @@ package com.jfixby.vk.api.data.likes;
 
 import com.jfixby.scarabei.api.json.Json;
 
-public class VkLikesResponseResult {
-	public VkLikesResponse response;
+public class LikesResponseResult {
+	public LikesResponse response;
 
 	@Override
 	public String toString () {
