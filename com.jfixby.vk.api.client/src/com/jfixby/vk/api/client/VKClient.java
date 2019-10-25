@@ -3,15 +3,6 @@ package com.jfixby.vk.api.client;
 
 import java.io.IOException;
 
-import org.picfight.vk.api.album.VKAlbumDataResponseResult;
-import org.picfight.vk.api.albums.VKAlbumsResult;
-import org.picfight.vk.api.comments.VkCommentsResponseResult;
-import org.picfight.vk.api.likes.VkLikesResponseResult;
-import org.picfight.vk.api.photo.VKPhotoDescriptionUpdateResponseResult;
-import org.picfight.vk.api.photo.VKSinglePhotoInfoResponse;
-import org.picfight.vk.api.user.VkProfileResponseResult;
-import org.picfight.vk.api.wall.VkWallPostResponseData;
-
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.Map;
 import com.jfixby.scarabei.api.json.Json;
@@ -23,6 +14,14 @@ import com.jfixby.scarabei.api.net.http.HttpConnectionSpecs;
 import com.jfixby.scarabei.api.net.http.HttpURL;
 import com.jfixby.scarabei.api.net.http.METHOD;
 import com.jfixby.scarabei.api.sys.Sys;
+import com.jfixby.vk.api.data.album.VKAlbumDataResponseResult;
+import com.jfixby.vk.api.data.albums.VKAlbumsResult;
+import com.jfixby.vk.api.data.comments.VkCommentsResponseResult;
+import com.jfixby.vk.api.data.likes.VkLikesResponseResult;
+import com.jfixby.vk.api.data.photo.VKPhotoDescriptionUpdateResponseResult;
+import com.jfixby.vk.api.data.photo.VKSinglePhotoInfoResponse;
+import com.jfixby.vk.api.data.user.VkProfileResponseResult;
+import com.jfixby.vk.api.data.wall.VkWallPostResponseData;
 
 public class VKClient {
 
