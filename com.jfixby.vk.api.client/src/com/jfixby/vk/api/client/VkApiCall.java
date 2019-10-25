@@ -94,16 +94,18 @@ public class VkApiCall {
 			}
 		}
 
-// L.d("raw_json");
-// Json.printPretty(Json.newJsonString(raw_json));
+		L.d("raw_json");
+		Json.printPretty(Json.newJsonString(raw_json));
 
 		final T result = Json.deserializeFromString(expectedResultType, raw_json);
 
 		return result;
 	}
 
-	public static AlbumsResult listAlbums (final VkApiCallParams clientParams) throws IOException {
-		final AlbumsResult result = VkApiCall.callMethod("photos.getAlbums", clientParams, null, AlbumsResult.class);
+	public static AlbumsResult listAlbums (final VkApiCallParams clientParams, final Long ownerID) throws IOException {
+		final Map<String, String> params = Collections.newMap();
+		params.put("owner_id", ownerID.toString());
+		final AlbumsResult result = VkApiCall.callMethod("photos.getAlbums", clientParams, params, AlbumsResult.class);
 		return result;
 	}
 
@@ -133,8 +135,8 @@ public class VkApiCall {
 		return response;
 	}
 
-	public static SinglePhotoInfoResponse getPhotoInfo (final VkApiCallParams clientParams, final Long groupID,
-		final Long photoID) throws IOException {
+	public static SinglePhotoInfoResponse getPhotoInfo (final VkApiCallParams clientParams, final Long groupID, final Long photoID)
+		throws IOException {
 		final Map<String, String> params = Collections.newMap();
 		params.put("photos", groupID + "_" + photoID);
 		final SinglePhotoInfoResponse response = //
