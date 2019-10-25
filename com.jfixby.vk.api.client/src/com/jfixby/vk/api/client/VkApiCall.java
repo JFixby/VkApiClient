@@ -94,9 +94,9 @@ public class VkApiCall {
 			}
 		}
 
-//		L.d("raw_json");
-//		Json.printPretty(Json.newJsonString(raw_json));
-
+// L.d("raw_json");
+// Json.printPretty(Json.newJsonString(raw_json));
+// Err.reportError("");
 		final T result = Json.deserializeFromString(expectedResultType, raw_json);
 
 		return result;
