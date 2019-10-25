@@ -4,7 +4,7 @@ package com.jfixby.vk.api.client;
 import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.sys.settings.SystemSettings;
 
-public class VkClientParamsViaSystemSettings implements VKClientParams {
+public class VkApiCallViaSystemSettings implements VkApiCallParams {
 // @Override
 // public Long VKGroupID () {
 // final String str = SystemSettings.getStringParameter(VKCredentials.VKGroupID(), null);

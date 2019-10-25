@@ -3,9 +3,9 @@ package com.jfixby.vk.api.data.wall;
 
 import java.util.ArrayList;
 
-import com.jfixby.vk.api.data.comments.VkPostAttachment;
+import com.jfixby.vk.api.data.comments.PostAttachment;
 
-public class VkWallPost {
+public class WallPost {
 	public Long id;
 	public Long from_id;
 	public Long owner_id;
@@ -19,7 +19,7 @@ public class VkWallPost {
 
 	public Boolean is_favorite;
 
-	public VkWallPostComments comments = new VkWallPostComments();;
+	public WallPostComments comments = new WallPostComments();;
 
-	public ArrayList<VkPostAttachment> attachments = new ArrayList<>();
+	public ArrayList<PostAttachment> attachments = new ArrayList<>();
 }

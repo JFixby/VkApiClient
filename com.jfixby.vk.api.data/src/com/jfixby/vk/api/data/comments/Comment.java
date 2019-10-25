@@ -3,7 +3,7 @@ package com.jfixby.vk.api.data.comments;
 
 import java.util.ArrayList;
 
-public class VkComment {
+public class Comment {
 	public Long id;
 	public Long from_id;
 	public ArrayList<Long> parents_stack = new ArrayList<>();
@@ -11,6 +11,6 @@ public class VkComment {
 	public String text;
 	public Long reply_to_user;
 	public Long reply_to_comment;
-	public VkCommentLikes likes;
-	public ArrayList<VkPostAttachment> attachments = new ArrayList<>();
+	public CommentLikes likes;
+	public ArrayList<PostAttachment> attachments = new ArrayList<>();
 }

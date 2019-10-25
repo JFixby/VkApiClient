@@ -1,7 +1,7 @@
 
 package com.jfixby.vk.api.data.albums;
 
-public class VKAlbumsResponseItem {
+public class AlbumsResponseItem {
 
 	public Long id;
 	public Long thumb_id;

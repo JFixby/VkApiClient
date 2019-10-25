@@ -1,10 +1,10 @@
 
-package com.jfixby.vk.api.data.comments;
+package com.jfixby.vk.api.data.wall;
 
 import com.jfixby.scarabei.api.json.Json;
 
-public class VkCommentsResponseResult {
-	public VkCommentsResponse response;
+public class WallPostResponseData {
+	public WallPostResponse response;
 
 	@Override
 	public String toString () {

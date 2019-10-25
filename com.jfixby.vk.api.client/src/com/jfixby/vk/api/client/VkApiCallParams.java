@@ -1,7 +1,7 @@
 
 package com.jfixby.vk.api.client;
 
-public interface VKClientParams {
+public interface VkApiCallParams {
 
 	String VKAccessToken ();
 

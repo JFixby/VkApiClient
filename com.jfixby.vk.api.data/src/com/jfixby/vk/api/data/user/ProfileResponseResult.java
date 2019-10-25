@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import com.jfixby.scarabei.api.json.Json;
 
-public class VkProfileResponseResult {
+public class ProfileResponseResult {
 // public VkProfileResponse response = new VkProfileResponse();
 	public ArrayList<ProfileInfoResultDataResponse> response = new ArrayList<>();
 

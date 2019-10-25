@@ -1,7 +1,7 @@
 
 package com.jfixby.vk.api.data.comments;
 
-public class VkPostAttachment {
+public class PostAttachment {
 
 	public String type;
 

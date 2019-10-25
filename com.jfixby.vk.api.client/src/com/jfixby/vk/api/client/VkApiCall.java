@@ -14,23 +14,23 @@ import com.jfixby.scarabei.api.net.http.HttpConnectionSpecs;
 import com.jfixby.scarabei.api.net.http.HttpURL;
 import com.jfixby.scarabei.api.net.http.METHOD;
 import com.jfixby.scarabei.api.sys.Sys;
-import com.jfixby.vk.api.data.album.VKAlbumDataResponseResult;
-import com.jfixby.vk.api.data.albums.VKAlbumsResult;
-import com.jfixby.vk.api.data.comments.VkCommentsResponseResult;
+import com.jfixby.vk.api.data.album.AlbumDataResponseResult;
+import com.jfixby.vk.api.data.albums.AlbumsResult;
+import com.jfixby.vk.api.data.comments.CommentsResponseResult;
 import com.jfixby.vk.api.data.likes.VkLikesResponseResult;
-import com.jfixby.vk.api.data.photo.VKPhotoDescriptionUpdateResponseResult;
-import com.jfixby.vk.api.data.photo.VKSinglePhotoInfoResponse;
-import com.jfixby.vk.api.data.user.VkProfileResponseResult;
-import com.jfixby.vk.api.data.wall.VkWallPostResponseData;
+import com.jfixby.vk.api.data.photo.PhotoDescriptionUpdateResponseResult;
+import com.jfixby.vk.api.data.photo.SinglePhotoInfoResponse;
+import com.jfixby.vk.api.data.user.ProfileResponseResult;
+import com.jfixby.vk.api.data.wall.WallPostResponseData;
 
-public class VKClient {
+public class VkApiCall {
 
-	public static <T> T callMethod (final String methodName, final VKClientParams credentials, final Map<String, String> params,
+	public static <T> T callMethod (final String methodName, final VkApiCallParams credentials, final Map<String, String> params,
 		final Class<T> expectedResultType) throws IOException {
 		final int MAX_TRIES = 7;
 		for (int i = 0; i < MAX_TRIES; i++) {
 			try {
-				final T result = VKClient.callMethodOnce(methodName, credentials, params, expectedResultType);
+				final T result = VkApiCall.callMethodOnce(methodName, credentials, params, expectedResultType);
 				return result;
 			} catch (final IOException e) {
 // e.printStackTrace();
@@ -41,7 +41,7 @@ public class VKClient {
 		return null;
 	}
 
-	public static <T> T callMethodOnce (final String methodName, final VKClientParams credentials,
+	public static <T> T callMethodOnce (final String methodName, final VkApiCallParams credentials,
 		final Map<String, String> params, final Class<T> expectedResultType) throws IOException {
 		final String url_string = "https://api.vk.com/method/" + methodName;
 		final HttpURL url = Http.newURL(url_string);
@@ -102,48 +102,48 @@ public class VKClient {
 		return result;
 	}
 
-	public static VKAlbumsResult listAlbums (final VKClientParams clientParams) throws IOException {
-		final VKAlbumsResult result = VKClient.callMethod("photos.getAlbums", clientParams, null, VKAlbumsResult.class);
+	public static AlbumsResult listAlbums (final VkApiCallParams clientParams) throws IOException {
+		final AlbumsResult result = VkApiCall.callMethod("photos.getAlbums", clientParams, null, AlbumsResult.class);
 		return result;
 	}
 
-	public static VKAlbumDataResponseResult getAlbum (final VKClientParams clientParams, final Long album_id) throws IOException {
+	public static AlbumDataResponseResult getAlbum (final VkApiCallParams clientParams, final Long album_id) throws IOException {
 		final Map<String, String> params = Collections.newMap();
 		params.put("album_id", album_id.toString());
-		final VKAlbumDataResponseResult response = //
-			VKClient.callMethod("photos.get", clientParams, params, VKAlbumDataResponseResult.class);
+		final AlbumDataResponseResult response = //
+			VkApiCall.callMethod("photos.get", clientParams, params, AlbumDataResponseResult.class);
 		return response;
 	}
 
-	public static VkProfileResponseResult getUserInfo (final VKClientParams clientParams, final String userid) throws IOException {
+	public static ProfileResponseResult getUserInfo (final VkApiCallParams clientParams, final String userid) throws IOException {
 		final Map<String, String> params = Collections.newMap();
 		params.put("user_ids", userid.toString());
-		final VkProfileResponseResult response = //
-			VKClient.callMethod("users.get", clientParams, params, VkProfileResponseResult.class);
+		final ProfileResponseResult response = //
+			VkApiCall.callMethod("users.get", clientParams, params, ProfileResponseResult.class);
 		return response;
 	}
 
-	public static VkWallPostResponseData getWallPosts (final VKClientParams clientParams, final WALL_FILTER filter)
+	public static WallPostResponseData getWallPosts (final VkApiCallParams clientParams, final WALL_FILTER filter)
 		throws IOException {
 		final Map<String, String> params = Collections.newMap();
 		params.put("filter", filter.VK_API_PARAM());
 
-		final VkWallPostResponseData response = //
-			VKClient.callMethod("wall.get", clientParams, params, VkWallPostResponseData.class);
+		final WallPostResponseData response = //
+			VkApiCall.callMethod("wall.get", clientParams, params, WallPostResponseData.class);
 		return response;
 	}
 
-	public static VKSinglePhotoInfoResponse getPhotoInfo (final VKClientParams clientParams, final Long groupID,
+	public static SinglePhotoInfoResponse getPhotoInfo (final VkApiCallParams clientParams, final Long groupID,
 		final Long photoID) throws IOException {
 		final Map<String, String> params = Collections.newMap();
 		params.put("photos", groupID + "_" + photoID);
-		final VKSinglePhotoInfoResponse response = //
-			VKClient.callMethod("photos.getById", clientParams, params, VKSinglePhotoInfoResponse.class);
+		final SinglePhotoInfoResponse response = //
+			VkApiCall.callMethod("photos.getById", clientParams, params, SinglePhotoInfoResponse.class);
 
 		return response;
 	}
 
-	public static VkCommentsResponseResult getComments (final VKClientParams clientParams, final Long groupID, final Long photoID)
+	public static CommentsResponseResult getComments (final VkApiCallParams clientParams, final Long groupID, final Long photoID)
 		throws IOException {
 		final Map<String, String> params = Collections.newMap();
 		params.put("type", "photo");
@@ -151,12 +151,12 @@ public class VKClient {
 		params.put("need_likes", "1");
 		params.put("owner_id", "" + groupID);
 		params.put("access_key", "");
-		final VkCommentsResponseResult response = //
-			VKClient.callMethod("photos.getComments", clientParams, params, VkCommentsResponseResult.class);
+		final CommentsResponseResult response = //
+			VkApiCall.callMethod("photos.getComments", clientParams, params, CommentsResponseResult.class);
 		return response;
 	}
 
-	public static VkLikesResponseResult getLikes (final VKClientParams clientParams, final Long groupID, final Long photo_id,
+	public static VkLikesResponseResult getLikes (final VkApiCallParams clientParams, final Long groupID, final Long photo_id,
 		final boolean alsoRequestProfile) throws IOException {
 		final Map<String, String> params = Collections.newMap();
 		params.put("type", "photo");
@@ -166,18 +166,18 @@ public class VKClient {
 		params.put("count", "100000000");
 		params.put("owner_id", "" + groupID);
 		final VkLikesResponseResult response = //
-			VKClient.callMethod("likes.getList", clientParams, params, VkLikesResponseResult.class);
+			VkApiCall.callMethod("likes.getList", clientParams, params, VkLikesResponseResult.class);
 		return response;
 	}
 
-	public static VKPhotoDescriptionUpdateResponseResult updatePhotoDescription (final VKClientParams clientParams,
+	public static PhotoDescriptionUpdateResponseResult updatePhotoDescription (final VkApiCallParams clientParams,
 		final Long groupID, final Long photoID, final String newDescription) throws IOException {
 		final Map<String, String> params = Collections.newMap();
 		params.put("caption", newDescription);
 		params.put("photo_id", "" + photoID);
 		params.put("owner_id", "" + groupID);
-		final VKPhotoDescriptionUpdateResponseResult response = //
-			VKClient.callMethod("photos.edit", clientParams, params, VKPhotoDescriptionUpdateResponseResult.class);
+		final PhotoDescriptionUpdateResponseResult response = //
+			VkApiCall.callMethod("photos.edit", clientParams, params, PhotoDescriptionUpdateResponseResult.class);
 		return response;
 	}
 

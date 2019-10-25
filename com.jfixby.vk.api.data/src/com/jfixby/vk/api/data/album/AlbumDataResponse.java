@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 import com.jfixby.scarabei.api.json.Json;
 
-public class VKAlbumDataResponse {
+public class AlbumDataResponse {
 
 	public Long count;
-	public ArrayList<VKAlbumPhotoData> items = new ArrayList<>();
+	public ArrayList<AlbumPhotoData> items = new ArrayList<>();
 
 	@Override
 	public String toString () {

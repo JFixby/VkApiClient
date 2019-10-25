@@ -3,9 +3,9 @@ package com.jfixby.vk.api.data.comments;
 
 import java.util.ArrayList;
 
-public class VkCommentsResponse {
+public class CommentsResponse {
 
 	public Long count;
-	public ArrayList<VkComment> items = new ArrayList<>();
+	public ArrayList<Comment> items = new ArrayList<>();
 
 }

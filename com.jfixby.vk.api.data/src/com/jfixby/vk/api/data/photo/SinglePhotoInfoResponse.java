@@ -4,10 +4,10 @@ package com.jfixby.vk.api.data.photo;
 import java.util.ArrayList;
 
 import com.jfixby.scarabei.api.json.Json;
-import com.jfixby.vk.api.data.album.VKAlbumPhotoData;
+import com.jfixby.vk.api.data.album.AlbumPhotoData;
 
-public class VKSinglePhotoInfoResponse {
-	public ArrayList<VKAlbumPhotoData> response;
+public class SinglePhotoInfoResponse {
+	public ArrayList<AlbumPhotoData> response;
 
 	@Override
 	public String toString () {
