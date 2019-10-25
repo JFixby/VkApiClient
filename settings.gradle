@@ -1,0 +1,3 @@
+include 'com.jfixby.vk.api.data'
+include 'com.jfixby.vk.api.client'
+

@@ -1,0 +1,32 @@
+
+plugins {
+    id 'java'
+    id 'maven'
+}
+
+
+repositories {
+          	 maven { url 'https://jitpack.io' }
+        	 mavenCentral()
+}
+
+sourceCompatibility = 1.8
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+dependencies {
+      compile "com.github.Scarabei.Scarabei:scarabei-api:$scarabeiVersion"
+      compile project(":com.jfixby.vk.api.data")
+}	
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/']
+        }
+        resources {
+            
+        }
+    }
+}
+
+
