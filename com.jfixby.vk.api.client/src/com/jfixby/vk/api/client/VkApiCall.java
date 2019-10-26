@@ -165,7 +165,7 @@ public class VkApiCall {
 		params.put("item_id", "" + photo_id);
 		params.put("friends_only", "0");
 		params.put("offset", "0");
-		params.put("count", "100000000");
+		params.put("count", "10000000");
 		params.put("owner_id", "" + groupID);
 		final LikesResponseResult response = //
 			VkApiCall.callMethod("likes.getList", clientParams, params, LikesResponseResult.class);
