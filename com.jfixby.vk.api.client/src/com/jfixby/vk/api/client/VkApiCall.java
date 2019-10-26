@@ -35,7 +35,7 @@ public class VkApiCall {
 				return result;
 			} catch (final IOException e) {
 // e.printStackTrace();
-				L.e(e.getMessage());
+				L.e(methodName, e.getMessage());
 				x = e;
 				Sys.sleep(500);
 			}
