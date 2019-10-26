@@ -28,6 +28,7 @@ public class VkApiCall {
 	public static <T> T callMethod (final String methodName, final VkApiCallParams credentials, final Map<String, String> params,
 		final Class<T> expectedResultType) throws IOException {
 		final int MAX_TRIES = 7;
+		IOException x = null;
 		for (int i = 0; i < MAX_TRIES; i++) {
 			try {
 				final T result = VkApiCall.callMethodOnce(methodName, credentials, params, expectedResultType);
@@ -35,10 +36,11 @@ public class VkApiCall {
 			} catch (final IOException e) {
 // e.printStackTrace();
 				L.e(e.getMessage());
+				x = e;
 				Sys.sleep(500);
 			}
 		}
-		return null;
+		throw x;
 	}
 
 	public static <T> T callMethodOnce (final String methodName, final VkApiCallParams credentials,
