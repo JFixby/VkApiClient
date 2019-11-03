@@ -7,5 +7,6 @@ public class ProfileInfoResultDataResponse {
 	public String last_name;
 	public Boolean is_closed;
 	public Boolean can_access_closed;
+	public String about;
 
 }
